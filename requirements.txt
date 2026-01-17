@@ -1,0 +1,7 @@
+appium-python-client==5.2.4
+selene==2.0.0rc9
+allure-pytest==2.15.3
+pytest==9.0.2
+python-dotenv==1.2.1
+requests==2.32.5
+allure-python-commons
