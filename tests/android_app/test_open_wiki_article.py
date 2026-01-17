@@ -1,17 +1,18 @@
 import allure
 import pytest
-from appium.webdriver.common.appiumby import AppiumBy
 from selene import browser, have
 
-SEARCH_OPEN = (AppiumBy.ACCESSIBILITY_ID, "Search Wikipedia")
-SEARCH_INPUT = (AppiumBy.ID, "org.wikipedia.alpha:id/search_src_text")
-RESULT_TITLE = (AppiumBy.ID, "org.wikipedia.alpha:id/page_list_item_title")
-RESULT_CONTAINER = (AppiumBy.ID, "org.wikipedia.alpha:id/page_list_item_container")
+from tests.android_app.locators.wiki_search import (
+    SEARCH_OPEN,
+    SEARCH_INPUT,
+    RESULT_TITLE,
+    RESULT_CONTAINER,
+)
 
 
 @allure.feature("Поиск")
 @allure.story("Открытие статьи")
-@allure.title("Открыть первую статью из результатов поиска по запросу")
+@allure.title("Открыть первую статью из результатов поиска")
 @pytest.mark.android
 def test_open_article_from_search():
     query = "Selene"
@@ -32,7 +33,7 @@ def test_open_article_from_search():
 
 @allure.feature("Поиск")
 @allure.story("Поиск статьи")
-@allure.title("Поиск: результаты содержат введённый запрос")
+@allure.title("Поиск: результаты содержат запрос")
 @pytest.mark.android
 def test_search():
     query = "Appium"
